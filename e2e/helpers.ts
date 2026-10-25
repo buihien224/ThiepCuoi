@@ -1,8 +1,32 @@
 import { expect, type Page } from "@playwright/test";
 
-// Phong bì che nội dung chính, nên mọi test vào thiệp đều phải bấm qua nó trước.
+// Kéo chuột từ giữa Thiệp lên `px` pixel rồi thả, chia nhiều bước để Motion `drag` nhận được chuyển động.
+// Kéo chậm (mỗi nấc 10px cách nhau 40ms, khoảng 250px/s, dưới ngưỡng vuốt nhanh): chuột của Playwright
+// đi rất nhanh, nếu không thì kéo ngắn cũng thành "vuốt nhanh" và Thiệp mở. Như vậy chỉ quãng kéo quyết định.
+export async function keoLen(page: Page, px: number) {
+  const thiep = page.getByRole("button", { name: "Mở thiệp" });
+  const khung = await thiep.boundingBox();
+  if (!khung) throw new Error("Không thấy Thiệp để kéo");
+  const x = khung.x + khung.width / 2;
+  const y = khung.y + khung.height / 2;
+
+  await page.mouse.move(x, y);
+  await page.mouse.down();
+  for (let keo = 10; keo <= px; keo += 10) {
+    await page.mouse.move(x, y - keo);
+    await page.waitForTimeout(40);
+  }
+  await page.mouse.up();
+}
+
+// Thiệp che nội dung chính, nên mọi test vào thiệp đều phải vuốt mở nó trước.
+// Kéo khoảng 60% chiều cao màn hình, vượt xa ngưỡng mở 30%.
 export async function moThiep(page: Page) {
-  await page.getByRole("button", { name: "Mở thiệp" }).click();
+  const manHinh = page.viewportSize();
+  if (!manHinh) throw new Error("Không có kích thước màn hình");
+  await keoLen(page, manHinh.height * 0.6);
+
+  await expect(page.getByRole("button", { name: "Mở thiệp" })).toBeHidden();
   await expect(page.getByRole("heading", { name: "Our Love Begins" })).toBeVisible();
 }
 

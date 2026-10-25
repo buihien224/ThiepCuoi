@@ -36,12 +36,3 @@ test("không tải được nhạc thì nút nhạc hiện đang tắt, không b
   await expect(nutNhac).toHaveAttribute("aria-pressed", "false");
   expect(loi).toEqual([]);
 });
-
-test("bấm SKIP thì nhạc cũng phát", async ({ page }) => {
-  await giaNhacNen(page);
-  await page.goto("/");
-
-  await page.getByRole("button", { name: "SKIP" }).click();
-
-  await expect(page.getByRole("button", { name: "Nhạc nền" })).toHaveAttribute("aria-pressed", "true");
-});
