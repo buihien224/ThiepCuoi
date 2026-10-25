@@ -94,7 +94,6 @@ export const wedding = {
 
   photos: {
     cover: null as Photo,
-    intro: null as Photo,
     // ~12 ảnh gallery
     gallery: Array.from({ length: 12 }, () => null) as Photo[],
   },

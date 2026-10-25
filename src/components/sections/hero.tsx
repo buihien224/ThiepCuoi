@@ -7,7 +7,7 @@ export function Hero() {
   const { coverTitle, groom, bride, families } = wedding;
 
   return (
-    <header className="mx-auto flex min-h-svh w-full max-w-md flex-col items-center justify-between gap-10 bg-cream px-6 py-12 text-center text-ink">
+    <header id="hero" className="mx-auto flex min-h-svh w-full max-w-md flex-col items-center justify-between gap-10 bg-cream px-6 py-12 text-center text-ink">
       <h1 className="font-heading text-6xl leading-[0.95] font-bold tracking-tight text-gold">
         {coverTitle}
       </h1>
