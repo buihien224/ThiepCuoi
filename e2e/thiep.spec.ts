@@ -71,11 +71,13 @@ test("Lòng thiệp hiện đúng thứ, ngày, giờ, ngày âm lịch và nhà
   await page.goto("/");
   await moThiep(page);
 
-  await expect(page.getByText("Trân trọng kính mời", { exact: true })).toBeVisible();
-  await expect(page.getByText("Thứ Bảy · 28.11.2026 · 11 giờ 00", { exact: true })).toBeVisible();
-  await expect(page.getByText("Tức ngày 20 tháng 10 năm Bính Ngọ", { exact: true })).toBeVisible();
-  await expect(page.getByText("[Tên nhà hàng] · [Sảnh tiệc]", { exact: true })).toBeVisible();
-  await expect(page.getByText("[Địa chỉ nhà hàng]", { exact: true })).toBeVisible();
+  // Lời mời, Save The Date và Location bên dưới cũng có những chữ này, nên chỉ tìm trong Lòng thiệp.
+  const longThiep = page.getByRole("region", { name: "Lòng thiệp" });
+  await expect(longThiep.getByText("Trân trọng kính mời", { exact: true })).toBeVisible();
+  await expect(longThiep.getByText("Thứ Bảy · 28.11.2026 · 11 giờ 00", { exact: true })).toBeVisible();
+  await expect(longThiep.getByText("Tức ngày 20 tháng 10 năm Bính Ngọ", { exact: true })).toBeVisible();
+  await expect(longThiep.getByText("[Tên nhà hàng] · [Sảnh tiệc]", { exact: true })).toBeVisible();
+  await expect(longThiep.getByText("[Địa chỉ nhà hàng]", { exact: true })).toBeVisible();
 });
 
 test("tải lại trang thì Thiệp lại đóng", async ({ page }) => {
