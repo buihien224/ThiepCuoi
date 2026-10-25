@@ -139,3 +139,8 @@
     @apply font-serif;
   }
 }
+
+/* Khoá cuộn trang khi phong bì còn đóng. Dùng CSS để có hiệu lực ngay từ HTML tĩnh, trước khi JS chạy. */
+:root:has([data-intro-open]) {
+  overflow: hidden;
+}

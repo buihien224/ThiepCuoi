@@ -10,6 +10,13 @@ export const wedding = {
   // Tiêu đề lớn trên bìa (tiêu đề trang trí, để tiếng Anh).
   coverTitle: "Our Love Begins",
 
+  // Màn phong bì lúc vừa mở link.
+  intro: {
+    label: "Thiệp mời cưới",
+    // Dòng chữ trên lá thư trong phong bì (tiêu đề trang trí, để tiếng Anh).
+    letterTitle: "Save the date",
+  },
+
   groom: { fullName: "Bùi Đức Hiền", shortName: "Đức Hiền" },
   bride: { fullName: "Phan Thị Mai Linh", shortName: "Mai Linh" },
 
