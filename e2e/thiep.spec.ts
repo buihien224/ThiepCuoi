@@ -88,3 +88,12 @@ test("tải lại trang thì Thiệp lại đóng", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Our Love Begins" })).toBeHidden();
   expect(await trangDangKhoa(page)).toBe("hidden");
 });
+
+test("gợi ý cuộn xuống trên Lòng thiệp đưa khách tới Hero", async ({ page }) => {
+  await page.goto("/");
+  await moThiep(page);
+
+  await page.getByRole("link", { name: "cuộn xuống" }).click();
+
+  await expect(page.getByRole("heading", { name: "Our Love Begins" })).toBeInViewport();
+});

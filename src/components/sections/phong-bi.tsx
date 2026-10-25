@@ -124,7 +124,13 @@ export function PhongBi(props: Props) {
     >
       <motion.div style={{ opacity: fadeOut }} className="absolute inset-0 bg-envelope-page" />
       <div className="absolute inset-0 grid place-items-center">
-        <motion.div style={{ y: envY, opacity: fadeOut }} className="relative aspect-[10/7] w-[min(88vw,380px)]">
+        {/* Phong bì "thở" nhẹ để gợi ý chạm vào; đứng yên khi khách bắt đầu Mở thiệp. */}
+        <motion.div
+          style={{ y: envY, opacity: fadeOut }}
+          animate={{ scale: opening ? 1 : [1, 1.012, 1] }}
+          transition={opening ? { duration: 0.2 } : { duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+          className="relative aspect-[10/7] w-[min(88vw,380px)]"
+        >
           <MatSau />
           <Nap rotateX={flap} />
           <motion.div

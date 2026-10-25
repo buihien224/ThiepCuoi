@@ -14,47 +14,47 @@ Thiệp che nội dung chính nên mọi test e2e về sau đều phải mở n�
 
 **Bìa trước**
 
-- [ ] Nền trắng, tối giản. Tên ngắn của chú rể và cô dâu ("Đức Hiền & Mai Linh") màu chữ tối, lấy từ cấu hình
-- [ ] Dấu niêm phong sáp đỏ dập chữ 囍 ở giữa, vẽ bằng SVG (không dùng ảnh). Đây là màu nhấn duy nhất
-- [ ] Dòng chữ mờ "Vuốt lên để mở thiệp" kèm mũi tên nhỏ nhấp nhô, Thiệp "thở" nhẹ để gợi ý
-- [ ] Không có nút hiển thị, không có SKIP, không hiện tên khách (`?to=`)
-- [ ] Trước khi mở: trang bị khoá cuộn, nội dung chính `inert` + `aria-hidden`
+- [x] Nền trắng, tối giản. Tên ngắn của chú rể và cô dâu ("Đức Hiền & Mai Linh") màu chữ tối, lấy từ cấu hình
+- [x] Dấu niêm phong sáp đỏ dập chữ 囍 ở giữa, vẽ bằng SVG (không dùng ảnh). Đây là màu nhấn duy nhất (mẫu C đổi 囍 thành chữ cái đầu "HL", xem Comments)
+- [x] Dòng chữ mờ "Vuốt lên để mở thiệp" kèm mũi tên nhỏ nhấp nhô, Thiệp "thở" nhẹ để gợi ý
+- [x] Không có nút hiển thị, không có SKIP, không hiện tên khách (`?to=`)
+- [x] Trước khi mở: trang bị khoá cuộn, nội dung chính `inert` + `aria-hidden`
 
 **Mở thiệp**
 
-- [ ] Bìa trước đi theo ngón tay khi kéo lên (Motion `drag`). Kéo quá khoảng 30% chiều cao hoặc vuốt nhanh thì mở; thả sớm thì Bìa trước bật về chỗ cũ và trang vẫn bị khoá
-- [ ] Khi mở: Dấu niêm phong tách đôi, Bìa trước bay lên khỏi màn hình, để lộ Lòng thiệp bên dưới. Cả hiệu ứng dưới 1 giây
-- [ ] Chạm thêm lần nữa trong lúc đang mở thì hiệu ứng tua tới cuối
-- [ ] Cách mở dự phòng, không hiện trên giao diện: chạm/click vào Thiệp, Enter, Space, mũi tên lên, lăn chuột. Thiệp có `aria-label="Mở thiệp"` và nhận được focus
-- [ ] Có `prefers-reduced-motion`: không có hiệu ứng bay, mọi cách mở đều chuyển sang Lòng thiệp bằng một hiệu ứng mờ dần ngắn
-- [ ] Tải lại trang thì Thiệp lại đóng (không lưu trạng thái)
+- [x] Bìa trước đi theo ngón tay khi kéo lên (Motion `drag`). Kéo quá khoảng 30% chiều cao hoặc vuốt nhanh thì mở; thả sớm thì Bìa trước bật về chỗ cũ và trang vẫn bị khoá
+- [x] Khi mở: Dấu niêm phong tách đôi, Bìa trước bay lên khỏi màn hình, để lộ Lòng thiệp bên dưới. Cả hiệu ứng dưới 1 giây
+- [x] Chạm thêm lần nữa trong lúc đang mở thì hiệu ứng tua tới cuối
+- [x] Cách mở dự phòng, không hiện trên giao diện: chạm/click vào Thiệp, Enter, Space, mũi tên lên, lăn chuột. Thiệp có `aria-label="Mở thiệp"` và nhận được focus
+- [x] Có `prefers-reduced-motion`: không có hiệu ứng bay, mọi cách mở đều chuyển sang Lòng thiệp bằng một hiệu ứng mờ dần ngắn
+- [x] Tải lại trang thì Thiệp lại đóng (không lưu trạng thái)
 
 **Lòng thiệp**
 
-- [ ] Nền trắng tối giản, cao `100svh`, là phần đầu tiên của trang (ngay trên Hero)
-- [ ] Nội dung lấy từ cấu hình: "Trân trọng kính mời" (`invitation.heading`); "Thứ Bảy · 28.11.2026 · 11 giờ 00"; ngày âm lịch; tên nhà hàng · sảnh; địa chỉ. Không có tên bố mẹ, không có bản đồ
-- [ ] Gợi ý nhỏ "cuộn xuống" trỏ tới Hero
-- [ ] Sau khi mở: trang hết khoá cuộn, nội dung chính hết `inert`, nút nhạc hiện ra
+- [x] Nền trắng tối giản, cao `100svh`, là phần đầu tiên của trang (ngay trên Hero)
+- [x] Nội dung lấy từ cấu hình: "Trân trọng kính mời" (`invitation.heading`); "Thứ Bảy · 28.11.2026 · 11 giờ 00"; ngày âm lịch; tên nhà hàng · sảnh; địa chỉ. Không có tên bố mẹ, không có bản đồ
+- [x] Gợi ý nhỏ "cuộn xuống" trỏ tới Hero
+- [x] Sau khi mở: trang hết khoá cuộn, nội dung chính hết `inert`, nút nhạc hiện ra
 
 **Nhạc nền**
 
-- [ ] Một phần tử audio dùng chung cho cả trang, nguồn nhạc lấy từ cấu hình. Chỉ gọi `play()` trong cử chỉ Mở thiệp (thả tay sau khi vuốt, chạm, phím)
-- [ ] Icon nhạc nổi, nằm ngoài luồng cuộn, phản ánh trạng thái thật của audio (đang phát hay đã dừng), kể cả khi trình duyệt chặn phát nhạc
+- [x] Một phần tử audio dùng chung cho cả trang, nguồn nhạc lấy từ cấu hình. Chỉ gọi `play()` trong cử chỉ Mở thiệp (thả tay sau khi vuốt, chạm, phím)
+- [x] Icon nhạc nổi, nằm ngoài luồng cuộn, phản ánh trạng thái thật của audio (đang phát hay đã dừng), kể cả khi trình duyệt chặn phát nhạc
 
 **Cấu hình**
 
-- [ ] Xoá `intro.label`, `intro.letterTitle` và `photos.intro` khỏi `src/content/wedding.ts` (Thiệp không dùng ảnh)
+- [x] Xoá `intro.label`, `intro.letterTitle` và `photos.intro` khỏi `src/content/wedding.ts` (Thiệp không dùng ảnh)
 
 **Test**
 
-- [ ] Helper dùng chung `moThiep(page)` mở Thiệp bằng cách kéo chuột lên. Test của ticket 01 dùng helper này
-- [ ] Test e2e: vuốt lên thì vào được nội dung chính
-- [ ] Test e2e: chạm vào Thiệp thì mở; nhấn Enter khi Thiệp có focus thì mở
-- [ ] Test e2e: kéo một đoạn ngắn rồi thả thì Thiệp không mở và trang vẫn bị khoá
-- [ ] Test e2e: Lòng thiệp hiện đúng thứ, ngày, giờ và nhà hàng theo cấu hình
-- [ ] Test e2e: bấm nút nhạc thì trạng thái nút đổi qua lại
-- [ ] Xoá test SKIP
-- [ ] Kiểm tra tay: trên iPhone thật với Safari, vuốt mở Thiệp thì nhạc phát
+- [x] Helper dùng chung `moThiep(page)` mở Thiệp bằng cách kéo chuột lên. Test của ticket 01 dùng helper này
+- [x] Test e2e: vuốt lên thì vào được nội dung chính
+- [x] Test e2e: chạm vào Thiệp thì mở; nhấn Enter khi Thiệp có focus thì mở
+- [x] Test e2e: kéo một đoạn ngắn rồi thả thì Thiệp không mở và trang vẫn bị khoá
+- [x] Test e2e: Lòng thiệp hiện đúng thứ, ngày, giờ và nhà hàng theo cấu hình
+- [x] Test e2e: bấm nút nhạc thì trạng thái nút đổi qua lại
+- [x] Xoá test SKIP
+- [ ] Kiểm tra tay: trên iPhone thật với Safari, vuốt mở Thiệp thì nhạc phát (chưa làm, cần người thật)
 
 ## Comments
 

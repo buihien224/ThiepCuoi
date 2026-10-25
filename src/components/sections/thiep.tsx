@@ -163,14 +163,18 @@ function Ten({ vaiTro, ten }: { vaiTro: string; ten: string }) {
 
 function CuonXuong() {
   return (
-    <div
-      aria-hidden
-      className="absolute inset-x-0 bottom-[max(1.5rem,env(safe-area-inset-bottom))] flex flex-col items-center gap-1 text-[0.65rem] tracking-[0.3em] text-ink/45 uppercase"
+    <a
+      href="#hero"
+      className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-[0.65rem] tracking-[0.3em] text-ink/45 uppercase"
     >
       cuộn xuống
-      <motion.span animate={{ y: [0, 5, 0] }} transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}>
+      <motion.span
+        aria-hidden
+        animate={{ y: [0, 5, 0] }}
+        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+      >
         <ChevronDown className="size-4" strokeWidth={1.5} />
       </motion.span>
-    </div>
+    </a>
   );
 }
